@@ -1,11 +1,14 @@
 import * as React from 'react';
 import './App.css'
-import Navbar from "./template";
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
-function App() {
+import routes from './routes'
+const router = createBrowserRouter(routes);
+
+const App = () => {
     return (
-        <Navbar />
-    );
-}
+        <RouterProvider router={router}/>
+    )
+};
 
-export default App
+export default App;
