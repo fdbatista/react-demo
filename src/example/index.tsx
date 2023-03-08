@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import '../App.css'
 import {Box, Button, TextField} from "@mui/material";
 import axios from "axios";
@@ -25,6 +25,11 @@ const validationRules = object({
 function Example() {
     const [user, setUser] = useState<any>(attributes)
     const [validationErrors, setValidationErrors] = useState<any[]>([])
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+
+    useEffect(() =>{
+        alert('Component mounted')
+    }, [])
 
     const handleSave = async () => {
         validationRules.validate(user, { strict: false, abortEarly: false })
